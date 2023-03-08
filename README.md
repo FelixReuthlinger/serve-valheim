@@ -72,6 +72,13 @@ since this will redirect all console output to a file, you can view the log usin
 tail -F nohup.out
 ```
 
+#### Fixing file ownership and permissions
+
+Some of the processes of the docker container running with root permissions do create files and folders that are owned by root, even changing PUIG and GUID still showed rare cases, where this would not work properly. Therefore sometimes it might be required to change the folder owner back to the normal user.
+```
+chown ubuntu:ubuntu -R $HOME/valheim-server
+```
+
 ### Uploading server side mods
 
 To simply create a server from an existing modpack, you will need to upload the local mod pack DLLs and config files to the server. For this you can use WinSCP (in case transferring from Windows).
