@@ -1,0 +1,9 @@
+---
+
+remote_home: "/home/ubuntu"
+remote_server_folder: "valheim"
+
+valheim_folder: "{{ remote_home }}/{{ remote_server_folder }}"
+valheim_config_folder: "{{ valheim_folder }}/config"
+valheim_config_worlds_local_folder: "{{ valheim_config_folder }}/worlds_local"
+valheim_data_folder: "{{ valheim_folder }}/data"

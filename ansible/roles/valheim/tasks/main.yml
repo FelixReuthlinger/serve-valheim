@@ -1,0 +1,42 @@
+---
+
+- name: Install aptitude
+  become: true
+  apt:
+    name: aptitude
+    state: latest
+    update_cache: true
+
+- name: Install required system packages
+  become: true
+  apt:
+    pkg:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+      - python3-pip
+      - virtualenv
+      - python3-setuptools
+      - docker-compose
+    state: latest
+    update_cache: true
+
+- name: Create Valheim local file system folders
+  file:
+    path: "{{ item }}"
+    state: directory
+    group: "{{ ansible_user }}"
+  loop:
+    - "{{ valheim_folder }}"
+    - "{{ valheim_config_folder }}"
+    - "{{ valheim_config_worlds_local_folder }}"
+    - "{{ valheim_data_folder }}"
+
+- name: Copy templates files to valheim folder
+  template: 
+    src=files/{{ item }}.j2
+    dest={{ valheim_folder }}/{{ item }}
+  with_items:
+    - docker-compose.yml
+    - valheim.env

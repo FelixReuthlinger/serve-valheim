@@ -1,0 +1,31 @@
+---
+
+name: install Valheim using Ansible
+on:
+  workflow_dispatch:
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get repository content
+        uses: actions/checkout@master
+
+      - name: run ansible
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          playbook: ansible/install-server.yml
+          key: ${{secrets.SSH_PRIVATE_KEY_JOTHORHEIM1}}
+          requirements: ansible/galaxy-requirements.yml
+          inventory: |
+            [jothorheim]
+            ${{secrets.HOST_IP_JOTHORHEIM1}}
+            [jothorheim:vars]
+            ansible_connection=ssh
+            ansible_user=ubuntu
+            VALHEIM_SERVER_NAME=JothorHeim
+            VALHEIM_SERVER_WORLD_NAME=jochen2
+            VALHEIM_SERVER_PASSWORD=${{secrets.VALHEIM_PASSWORD_JOTHORHEIM1}}
+          options: |
+            --verbose
+

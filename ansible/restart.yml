@@ -1,0 +1,12 @@
+---
+
+- name: start services
+  become: true
+  community.docker.docker_compose:
+    project_src: valheim
+    build: false
+    restarted: true
+  register: valheim.output
+
+- ansible.builtin.debug:
+    var: valheim.output
