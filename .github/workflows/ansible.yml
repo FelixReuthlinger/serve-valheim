@@ -17,5 +17,5 @@ jobs:
           playbook: ansible/site.yml
           key: ${{secrets.SSH_PRIVATE_KEY_JOTHORHEIM1}}
           inventory: |
-            [JothorHeim]
+            [all]
             ${{secrets.HOST_IP_JOTHORHEIM1}}
