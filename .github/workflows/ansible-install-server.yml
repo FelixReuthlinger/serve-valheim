@@ -23,8 +23,8 @@ jobs:
             [jothorheim:vars]
             ansible_connection=ssh
             ansible_user=ubuntu
-            VALHEIM_SERVER_NAME=JothorHeim
-            VALHEIM_SERVER_WORLD_NAME=jochen2
+            VALHEIM_SERVER_NAME=JothorHuntsRelics
+            VALHEIM_SERVER_WORLD_NAME=JothorHuntsRelics
             VALHEIM_SERVER_PASSWORD=${{secrets.VALHEIM_PASSWORD_JOTHORHEIM1}}
           options: |
             --verbose
