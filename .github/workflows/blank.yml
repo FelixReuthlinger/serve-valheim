@@ -91,3 +91,5 @@ jobs:
           inventory: |
             [all]
             ${{secrets.HOST_IP_JOTHORHEIM1}}
+          options: |
+            --verbose
