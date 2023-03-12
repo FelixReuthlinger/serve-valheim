@@ -1,0 +1,21 @@
+---
+
+name: deploy
+on:
+  workflow_dispatch:
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get repository content
+        uses: actions/checkout@master
+
+      - name: run ansible
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          playbook: ansible/site.yml
+          key: ${{secrets.SSH_PRIVATE_KEY_JOTHORHEIM1}}
+          inventory: |
+            [JothorHeim]
+            ${{secrets.HOST_IP_JOTHORHEIM1}}
