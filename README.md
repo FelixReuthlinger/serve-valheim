@@ -54,6 +54,8 @@ WORLD_NAME=<use the world name, if you copied any locally saved before to $HOME/
 SERVER_PASS=<use your password, min 5 characters>
 SERVER_PUBLIC=true
 BEPINEX=true
+PUID=1000
+GUID=1000
 ```
 
 ### Starting the server
