@@ -3,7 +3,18 @@
 remote_home: "/home/ubuntu"
 remote_server_folder: "valheim"
 
+bepinex_name: "bepinex"
+bepinex_case_name: "BepInEx"
+bepinex_plugins_name: "plugins"
+bepinex_patchters_name: "patchers"
+
 valheim_folder: "{{ remote_home }}/{{ remote_server_folder }}"
 valheim_config_folder: "{{ valheim_folder }}/config"
 valheim_config_worlds_local_folder: "{{ valheim_config_folder }}/worlds_local"
+valheim_config_bepinex_folder: "{{ valheim_config_folder }}/{{ bepinex_name }}"
+valheim_config_bepinex_plugins_folder: "{{ valheim_config_bepinex_folder }}/{{ bepinex_plugins_name }}"
 valheim_data_folder: "{{ valheim_folder }}/data"
+valheim_data_bepinex_folder: "{{ valheim_data_folder }}/{{ bepinex_name }}"
+valheim_data_bepinex_bepcase_folder: "{{ valheim_data_bepinex_folder }}/{{ bepinex_case_name }}"
+valheim_data_bepinex_bepcase_plugins_folder: "{{ valheim_data_bepinex_bepcase_folder }}/{{ bepinex_plugins_name }}"
+valheim_data_bepinex_bepcase_patchers_folder: "{{ valheim_data_bepinex_bepcase_folder }}/{{ bepinex_patchters_name }}"

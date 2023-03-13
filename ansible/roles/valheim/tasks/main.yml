@@ -31,7 +31,13 @@
     - "{{ valheim_folder }}"
     - "{{ valheim_config_folder }}"
     - "{{ valheim_config_worlds_local_folder }}"
+    - "{{ valheim_config_bepinex_folder }}"
+    - "{{ valheim_config_bepinex_plugins_folder }}"
     - "{{ valheim_data_folder }}"
+    - "{{ valheim_data_bepinex_folder }}"
+    - "{{ valheim_data_bepinex_bepcase_folder }}"
+    - "{{ valheim_data_bepinex_bepcase_plugins_folder }}"
+    - "{{ valheim_data_bepinex_bepcase_patchers_folder }}"
 
 - name: Copy templates files to valheim folder
   template: 
